@@ -1,0 +1,79 @@
+/* Click2Chat – admin dashboard */
+.c2c-admin .wp-heading-inline { display: inline-flex; align-items: center; gap: 8px; }
+.c2c-admin .wp-heading-inline .dashicons { color: #25d366; font-size: 28px; width: 28px; height: 28px; }
+.c2c-version { padding: 2px 8px; border-radius: 999px; background: #e7f9ee; color: #0a6b34; font-size: 12px; font-weight: 600; }
+
+.c2c-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; margin-top: 16px; align-items: start; }
+@media (min-width: 1200px) { .c2c-layout { grid-template-columns: minmax(0, 1fr) 440px; } }
+@media (min-width: 1200px) { .c2c-side { position: sticky; top: 48px; } }
+@media (max-width: 1199px) { .c2c-side { order: -1; } }
+
+.c2c-tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 14px; border-bottom: 1px solid #c3c4c7; }
+.c2c-tab {
+	margin: 0 0 -1px;
+	padding: 10px 16px;
+	border: 1px solid transparent;
+	border-radius: 4px 4px 0 0;
+	background: transparent;
+	color: #50575e;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+}
+.c2c-tab:hover { color: #1d2327; background: #f0f0f1; }
+.c2c-tab:focus-visible { outline: 2px solid #2271b1; outline-offset: -2px; }
+.c2c-tab[aria-selected="true"] { border-color: #c3c4c7 #c3c4c7 #f0f0f1; background: #f0f0f1; color: #1d2327; font-weight: 600; box-shadow: inset 0 3px 0 #25d366; }
+
+.c2c-panel[hidden] { display: none; }
+.c2c-card { margin-bottom: 16px; padding: 4px 20px 12px; border: 1px solid #dcdcde; border-radius: 8px; background: #fff; }
+.c2c-card h2 { margin: 16px 0 4px; padding: 0; font-size: 16px; }
+.c2c-card .form-table th { width: 190px; padding: 16px 10px 16px 0; }
+.c2c-card .form-table td { padding: 12px 0; }
+.c2c-card .description { margin-top: 6px; }
+.c2c-suffix { margin-left: 6px; color: #646970; }
+.c2c-intro { margin: 0 0 14px; padding: 10px 14px; border-left: 4px solid #25d366; background: #fff; }
+
+.c2c-choices { display: flex; flex-wrap: wrap; gap: 12px; margin: 14px 0 8px; padding: 0; border: 0; }
+.c2c-choice { position: relative; cursor: pointer; }
+.c2c-choice input { position: absolute; opacity: 0; pointer-events: none; }
+.c2c-choice-box {
+	display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+	min-width: 110px; min-height: 108px; padding: 14px 10px;
+	border: 2px solid #dcdcde; border-radius: 10px; background: #fafafa;
+	transition: border-color .15s, box-shadow .15s;
+}
+.c2c-choice:hover .c2c-choice-box { border-color: #8c8f94; }
+.c2c-choice input:checked + .c2c-choice-box { border-color: #25d366; background: #f1fcf5; box-shadow: 0 0 0 3px rgba(37, 211, 102, .2); }
+.c2c-choice input:focus-visible + .c2c-choice-box { outline: 2px solid #2271b1; outline-offset: 2px; }
+.c2c-choice-label { font-size: 12px; font-weight: 600; color: #3c434a; text-align: center; }
+.c2c-icons .c2c-choice-box { min-width: 88px; min-height: 84px; }
+.c2c-icon-sample { display: inline-flex; width: 32px; height: 32px; color: #25d366; }
+.c2c-icon-sample svg { width: 100%; height: 100%; fill: currentColor; }
+.c2c-icon-sample .dashicons { width: 32px; height: 32px; font-size: 32px; color: #646970; }
+
+/* Mini design samples reuse the real frontend button styles */
+.c2c-mini-host { display: flex; align-items: center; justify-content: center; min-height: 48px; }
+.c2c-widget.c2c-mini { position: static; display: block; transform: none; }
+.c2c-widget.c2c-mini a.c2c-btn { pointer-events: none; animation: none; }
+.c2c-widget.c2c-mini a.c2c-btn::before { display: none; }
+
+/* Preview */
+.c2c-preview-card { padding-bottom: 18px; }
+.c2c-preview-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin: 12px 0; }
+.c2c-device[aria-pressed="true"] { border-color: #25d366; background: #e7f9ee; color: #0a6b34; }
+.c2c-frame { box-sizing: border-box; position: relative; margin: 0 auto; overflow: hidden; border: 1px solid #c3c4c7; border-radius: 10px; background: #f6f7f7; }
+.c2c-screen { box-sizing: border-box; position: absolute; top: 0; left: 0; overflow: hidden; transform-origin: top left; background: #fff; padding: 0 5%; }
+.c2c-fake-nav { height: 70px; margin: 0 -5.5% 40px; background: #1d2327; }
+.c2c-fake-hero { height: 210px; margin-bottom: 36px; border-radius: 16px; background: linear-gradient(135deg, #dfe7ee, #f0f3f6); }
+.c2c-fake-line { height: 18px; margin-bottom: 18px; border-radius: 9px; background: #e5e8eb; }
+.c2c-fake-line.short { width: 55%; }
+.c2c-fake-cols { display: flex; gap: 24px; margin: 30px 0; }
+.c2c-fake-cols span { flex: 1; height: 150px; border-radius: 12px; background: #eceff2; }
+.c2c-widget.c2c-is-preview { position: absolute; }
+.c2c-widget.c2c-is-preview a.c2c-btn { cursor: default; }
+.c2c-preview-note { min-height: 20px; margin: 10px 0 0; color: #b32d2e; font-size: 12px; }
+
+.c2c-steps { margin: 12px 0 8px 20px; list-style: decimal; }
+.c2c-steps li { margin-bottom: 8px; }
+.c2c-admin textarea.large-text { max-width: 520px; }
+.c2c-admin .wp-picker-container { display: inline-block; }

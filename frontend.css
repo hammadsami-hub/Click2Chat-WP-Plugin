@@ -1,0 +1,258 @@
+/*!
+ * Click2Chat – frontend styles
+ * Layout/colour values come from CSS custom properties generated from the plugin settings.
+ */
+.c2c-widget,
+.c2c-inline {
+	--c2c-bg: #0e806f;
+	--c2c-color: #fff;
+	--c2c-hover: #075e54;
+	--c2c-accent: #0a4f7a;
+	--c2c-font: 15px;
+	--c2c-shadow: 0 6px 18px rgba(0, 0, 0, .28);
+	--c2c-size: 60px;
+	--c2c-icon: 30px;
+	--c2c-pad: 0px;
+	--c2c-label-display: none;
+	--c2c-z: 99990;
+	--c2c-delay: 0s;
+}
+.c2c-inline { --c2c-icon: 20px; }
+
+.c2c-widget,
+.c2c-widget *,
+.c2c-inline,
+.c2c-inline * { box-sizing: border-box; }
+
+/* ---------- Floating wrapper ---------- */
+.c2c-widget {
+	position: fixed;
+	display: var(--c2c-display, block);
+	z-index: var(--c2c-z);
+	left: var(--c2c-left, auto);
+	right: var(--c2c-right, auto);
+	top: var(--c2c-top, auto);
+	bottom: var(--c2c-bottom, auto);
+	transform: var(--c2c-transform, none);
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---------- Button ---------- */
+.c2c-widget a.c2c-btn {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	height: var(--c2c-size);
+	min-width: var(--c2c-size);
+	padding: 0 var(--c2c-pad);
+	margin: 0;
+	border: 0;
+	border-radius: 50%;
+	background: var(--c2c-bg);
+	box-shadow: var(--c2c-shadow);
+	font: 600 var(--c2c-font) / 1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	white-space: nowrap;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	transition: background-color .2s ease, box-shadow .2s ease, scale .2s ease;
+}
+.c2c-widget a.c2c-btn:is(:link, :visited, :hover, :focus, :active) {
+	color: var(--c2c-color);
+	text-decoration: none;
+	outline-offset: 3px;
+}
+.c2c-widget a.c2c-btn:hover { background: var(--c2c-hover); }
+.c2c-widget.c2c-hover-fx a.c2c-btn:hover { scale: 1.07; }
+.c2c-widget a.c2c-btn:focus-visible,
+.c2c-widget .c2c-start:focus-visible,
+.c2c-widget .c2c-close:focus-visible,
+a.c2c-inline:focus-visible {
+	outline: 2px solid #fff;
+	box-shadow: 0 0 0 5px #1d2327;
+}
+
+.c2c-icon {
+	display: inline-flex;
+	flex: none;
+	width: var(--c2c-icon);
+	height: var(--c2c-icon);
+}
+.c2c-icon svg { display: block; width: 100%; height: 100%; fill: currentColor; }
+.c2c-icon img { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 4px; }
+.c2c-label { display: var(--c2c-label-display); line-height: 1; }
+
+.c2c-sr {
+	position: absolute !important;
+	width: 1px; height: 1px;
+	margin: -1px; padding: 0; border: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+}
+
+/* ---------- 5 designs ---------- */
+.c2c-design-2 a.c2c-btn,
+.c2c-design-4 a.c2c-btn { border-radius: 999px; }
+.c2c-design-3 a.c2c-btn { border-radius: calc(var(--c2c-size) * .28); }
+.c2c-design-5 a.c2c-btn {
+	border-radius: calc(var(--c2c-size) * .36);
+	background: linear-gradient(135deg, var(--c2c-bg), var(--c2c-accent));
+}
+.c2c-design-5 a.c2c-btn:hover { background: linear-gradient(135deg, var(--c2c-hover), var(--c2c-bg)); }
+.c2c-design-4 a.c2c-btn {
+	background: var(--c2c-color);
+	border: 2px solid var(--c2c-bg);
+}
+.c2c-design-4 a.c2c-btn:is(:link, :visited, :focus) { color: var(--c2c-bg); }
+.c2c-design-4 a.c2c-btn:hover { background: var(--c2c-bg); }
+.c2c-design-4 a.c2c-btn:is(:hover, :active) { color: var(--c2c-color); }
+
+/* ---------- Popup ---------- */
+.c2c-popup {
+	position: absolute;
+	top: var(--c2c-pop-top, auto);
+	bottom: var(--c2c-pop-bottom, calc(100% + 12px));
+	left: var(--c2c-pop-left, auto);
+	right: var(--c2c-pop-right, 0);
+	transform: var(--c2c-pop-transform, none);
+	width: 330px;
+	max-width: calc(100vw - 32px);
+	overflow: hidden;
+	border-radius: 16px;
+	background: #fff;
+	color: #1d2327;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, .28);
+	font: 400 14px / 1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	text-align: left;
+	animation: c2c-pop .25s ease-out;
+}
+.c2c-popup[hidden] { display: none; }
+.c2c-popup-head {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 14px 12px 14px 16px;
+	background: var(--c2c-bg);
+	color: var(--c2c-color);
+}
+.c2c-design-5 .c2c-popup-head { background: linear-gradient(135deg, var(--c2c-bg), var(--c2c-accent)); }
+.c2c-avatar {
+	display: inline-flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, .22);
+}
+.c2c-avatar svg, .c2c-avatar img { width: 24px; height: 24px; fill: currentColor; object-fit: contain; }
+.c2c-popup-meta { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
+.c2c-popup-meta strong { font-size: 15px; font-weight: 700; line-height: 1.2; color: inherit; }
+.c2c-popup-meta span { font-size: 12px; line-height: 1.3; color: inherit; }
+.c2c-widget button.c2c-close {
+	display: inline-flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: transparent;
+	box-shadow: none;
+	color: inherit;
+	cursor: pointer;
+}
+.c2c-widget button.c2c-close:hover { background: rgba(255, 255, 255, .22); color: inherit; }
+.c2c-close svg { width: 20px; height: 20px; fill: currentColor; }
+.c2c-popup-body { padding: 16px; background: #e9e3dc; }
+.c2c-popup-body:empty { display: none; }
+.c2c-bubble {
+	display: inline-block;
+	max-width: 92%;
+	padding: 10px 12px;
+	border-radius: 0 12px 12px 12px;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+	white-space: pre-line;
+	word-wrap: break-word;
+	overflow-wrap: anywhere;
+}
+.c2c-popup-foot { padding: 12px 16px 16px; background: #fff; }
+.c2c-widget a.c2c-start {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-height: 44px;
+	padding: 0 18px;
+	border-radius: 999px;
+	background: var(--c2c-bg);
+	font: 600 14px / 1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	box-shadow: none;
+	transition: background-color .2s ease;
+}
+.c2c-widget a.c2c-start:is(:link, :visited, :hover, :focus, :active) { color: var(--c2c-color); text-decoration: none; }
+.c2c-widget a.c2c-start:hover { background: var(--c2c-hover); }
+.c2c-start .c2c-icon { width: 20px; height: 20px; }
+
+/* ---------- Attention animations ---------- */
+.c2c-widget.c2c-enter { animation: c2c-enter .5s ease-out both; animation-delay: var(--c2c-delay); }
+.c2c-anim-pulse a.c2c-btn::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	border-radius: inherit;
+	background: var(--c2c-bg);
+	animation: c2c-ring 2s ease-out infinite;
+	pointer-events: none;
+}
+.c2c-anim-bounce a.c2c-btn { animation: c2c-bounce 2.6s ease infinite; }
+.c2c-anim-shake a.c2c-btn { animation: c2c-shake 3s ease infinite; }
+.c2c-anim-float a.c2c-btn { animation: c2c-float 3s ease-in-out infinite alternate; }
+.c2c-open a.c2c-btn,
+.c2c-widget a.c2c-btn:hover { animation-play-state: paused; }
+.c2c-open a.c2c-btn::before { display: none; }
+
+@keyframes c2c-enter { from { opacity: 0; translate: 0 16px; } to { opacity: 1; translate: 0 0; } }
+@keyframes c2c-pop { from { opacity: 0; translate: 0 10px; } to { opacity: 1; translate: 0 0; } }
+@keyframes c2c-ring { 0% { transform: scale(1); opacity: .55; } 70%, 100% { transform: scale(1.55); opacity: 0; } }
+@keyframes c2c-bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-12px); } 60% { transform: translateY(-6px); } }
+@keyframes c2c-shake { 0%, 55%, 100% { transform: rotate(0); } 60%, 70%, 80% { transform: rotate(-12deg); } 65%, 75%, 85% { transform: rotate(12deg); } 90% { transform: rotate(0); } }
+@keyframes c2c-float { from { transform: translateY(0); } to { transform: translateY(-7px); } }
+
+@media (prefers-reduced-motion: reduce) {
+	.c2c-widget,
+	.c2c-widget *,
+	.c2c-widget *::before { animation: none !important; transition: none !important; }
+}
+
+/* ---------- [click2chat] shortcode button ---------- */
+a.c2c-inline,
+a.c2c-inline:is(:link, :visited, :hover, :focus, :active) {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 22px;
+	border-radius: 999px;
+	background: var(--c2c-bg);
+	color: var(--c2c-color);
+	font-weight: 600;
+	line-height: 1.2;
+	text-decoration: none;
+	box-shadow: var(--c2c-shadow);
+	transition: background-color .2s ease;
+}
+a.c2c-inline:hover { background: var(--c2c-hover); }
+
+/* ---------- Print ---------- */
+@media print { .c2c-widget { display: none !important; } }
