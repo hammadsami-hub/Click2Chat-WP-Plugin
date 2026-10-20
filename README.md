@@ -15,10 +15,7 @@ A lightweight and customizable WordPress WhatsApp button plugin with multiple de
 ## 📦 Installation
 
 1. Download the plugin ZIP file from this repository.
-2. Log in to your WordPress dashboard.
-3. Navigate to **Plugins → Add New Plugin → Upload Plugin**.
-4. Upload the ZIP file and click **Install Now**.
-5. Activate Click2Chat and configure your settings.
+2. Activate Click2Chat and configure your settings.
 
 ## 🚀 Download & Try
 
